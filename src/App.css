@@ -1,0 +1,140 @@
+:root{
+  --purple-accent: #4c99ff;
+  --blue-background: #ebf3ff;
+  --green: #cddeff;
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+} 
+.title-area{
+  flex: 10%;
+  margin-left: 1rem;
+} 
+.content-area{
+  display: flex; 
+  flex: 90%;
+}
+
+.navbar-area{
+  flex:20%; 
+  height: 100%;
+  
+}
+.article-area{ 
+  flex:80%;
+  height: 100%;
+  background: var(--blue-background);
+  border-radius: 1rem;
+  position: relative;
+}
+.query-container {
+  width: 80%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap:0.3rem;
+  
+}
+
+.input-container{
+  
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  position: absolute; 
+  bottom: 10px;
+  flex-grow: 1; 
+ 
+
+}
+.input-holder{
+  background: white;
+  display: flex; 
+  flex: 90%;
+  width: 90%; 
+  border: solid 1.5px rgb(39, 39, 39); 
+  border-radius: 30px;
+  padding: 0.8rem; 
+  transition: 300ms;
+  
+  
+}
+
+.query-file{
+  flex: 10%;
+  width: 10%;
+  padding: 0.5rem;
+}
+#file{
+  display: none;
+}
+
+.query-text{
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+input[type='file']:focus{
+  outline: none; 
+  
+}
+
+.send-button{
+  color: grey;
+}
+.input-holder:focus-within{
+  border: solid 2px var(--purple-accent);   
+}
+
+.app-name{
+  margin: 0.6rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.title-container{
+  display: flex; 
+  align-items: center;
+}
+
+.navbar-area{
+  padding: 1rem;
+  padding-top: 0px;
+}
+.link{
+  background: var(--green); 
+  border-radius: 0.6rem;
+  padding: 1rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+.link>p{
+  margin: 0px;
+  color: black;
+}
+
+
+.open-in-new{
+  color: grey;
+  width: 18px;
+  height: 18px; 
+
+}
+
+@media screen and (max-width:700px) {
+  .navbar-area{
+    display: none;
+  }
+  .query-container{
+    width: 90%;
+  }
+}

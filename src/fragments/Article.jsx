@@ -6,6 +6,7 @@ const Article = ()=>{
         'text': '',
         'files': [],
     })
+    const [messages,setMessages] = useState([])
 
     return (
         <div className="article-area">

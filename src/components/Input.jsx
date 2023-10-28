@@ -34,7 +34,7 @@ const Input = ({query,setQuery}) => {
                     className="query-text" 
                     type="text" 
                     onChange={updateText} value={query.text}/>
-                    <span class="material-symbols-outlined send-button">
+                    <span className="material-symbols-outlined send-button">
                         send
                     </span>
                 </div>

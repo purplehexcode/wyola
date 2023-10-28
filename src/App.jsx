@@ -4,11 +4,11 @@ import Title from './fragments/Title'
 import './App.css'
 
 function App() {
-  
+  const [navOpen,setNavOpen] = useState(false)
   return (
     <div className='app'>
-      <Title/>
-      <Content/>
+      <Title navOpen={navOpen} setNavOpen={setNavOpen}/>
+      <Content navOpen={navOpen}/>
     </div>
     
   )

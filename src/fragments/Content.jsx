@@ -1,10 +1,12 @@
 import Navbar from "./Navbar"
 import Article from "./Article"
 
-const Content = () =>{
+const Content = ({navOpen}) =>{
     return (
         <div className="content-area">
-            <Navbar/>
+            {
+                navOpen &&  <Navbar/>
+            }
             <Article/>
         </div>
     )

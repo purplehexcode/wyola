@@ -1,4 +1,5 @@
 import Input from "../components/Input"
+import MessagesHolder from "../components/MessagesHolder"
 import { useState } from "react"
 
 const Article = ()=>{
@@ -10,7 +11,8 @@ const Article = ()=>{
 
     return (
         <div className="article-area">
-            <Input query={query} setQuery={setQuery}/>
+            <MessagesHolder messages={messages}/>
+            <Input query={query} setQuery={setQuery} setMessages={setMessages} messages={messages}/>
         </div>
         
     )

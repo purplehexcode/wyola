@@ -10,7 +10,7 @@ const Title = ({navOpen,setNavOpen}) => {
     return (
         <div className="title-area">
             <div className="title-container">
-                <span class="material-symbols-outlined hamburger" onClick={handleNavOpen}>menu</span>
+                <span className="material-symbols-outlined hamburger" onClick={handleNavOpen}>menu</span>
                 <h1 className="app-name">Wyola</h1>
             </div>
             

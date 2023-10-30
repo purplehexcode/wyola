@@ -1,5 +1,5 @@
 
-const Input = ({query,setQuery}) => {
+const Input = ({query,setQuery,setMessages,messages}) => {
 
     const updateFiles = (e) => {
         const newQuery = {...query}
@@ -14,11 +14,19 @@ const Input = ({query,setQuery}) => {
             text: e.target.value,
         })
     }
+
+    const updateMessages = () => {
+        setMessages(messages.concat(query.text))
+        setQuery({
+            text: '',
+            files: [],
+        })
+    }
     return (
         <div  className="input-container">
             <div className="query-container">
                 <div>
-                    <label for="file">
+                    <label htmlFor="file">
                     <span className="material-symbols-outlined">image</span>
                     </label>
                     <input type="file"
@@ -28,13 +36,13 @@ const Input = ({query,setQuery}) => {
                         className="query-file" multiple={true}/>
                 </div>
                 
-                <div className="input-holder">
+                <div className="input-holder"> 
                     <input 
                     placeholder="Enter your prompt here"
                     className="query-text" 
                     type="text" 
                     onChange={updateText} value={query.text}/>
-                    <span className="material-symbols-outlined send-button">
+                    <span className="material-symbols-outlined send-button" onClick={updateMessages}>
                         send
                     </span>
                 </div>

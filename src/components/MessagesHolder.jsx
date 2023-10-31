@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import axios from "axios"
 
 const EmptyMessages = () => {
     return (
@@ -9,8 +10,11 @@ const EmptyMessages = () => {
 }
 
 const getAnswer = () =>{
-    console.log('returned answer')
-    return 'General Answer'
+    const request = axios.get('/chatgpt')
+    return request.then(response=>{
+        console.log(response.data)
+        return response.data.text
+    })
 }
 
 const MessagesAdapter = ({messages,setMessages}) => {

@@ -28,6 +28,12 @@ const Input = ({query,setQuery,setMessages,messages}) => {
         })
         
     }
+    const handleKeyDown = (event) =>{
+        console.log(event)
+        if(event.key=='Enter'){
+            updateMessages()
+        }
+    }
     return (
         <div  className="input-container">
             <div className="query-container">
@@ -47,7 +53,7 @@ const Input = ({query,setQuery,setMessages,messages}) => {
                     placeholder="Enter your prompt here"
                     className="query-text" 
                     type="text" 
-                    onChange={updateText} value={query.text}/>
+                    onChange={updateText} value={query.text} onKeyDown={handleKeyDown}/>
                     <span className="material-symbols-outlined send-button" onClick={updateMessages}>
                         send
                     </span>

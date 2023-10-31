@@ -16,11 +16,17 @@ const Input = ({query,setQuery,setMessages,messages}) => {
     }
 
     const updateMessages = () => {
-        setMessages(messages.concat(query.text))
+        const newQuery = {
+            ...query,
+            new:true,
+        }
+        
+        setMessages(messages.concat(newQuery))
         setQuery({
-            text: '',
-            files: [],
+            text:'',
+            files:[]
         })
+        
     }
     return (
         <div  className="input-container">

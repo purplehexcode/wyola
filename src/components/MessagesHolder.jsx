@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 const EmptyMessages = () => {
     return (
         <>
@@ -6,21 +8,56 @@ const EmptyMessages = () => {
     )
 }
 
-const MessagesAdapter = ({messages}) => {
-    return (
-        <ul className="messages-adapter">
-            {
-                messages.map(message=><li>{message}</li>)
+const getAnswer = () =>{
+    console.log('returned answer')
+    return 'General Answer'
+}
+
+const MessagesAdapter = ({messages,setMessages}) => {
+    useEffect(()=>{
+        console.log('before',messages)
+        const getSolution = async()=>{
+            var questions = [...messages]
+            var lastQuestion = questions[messages.length-1]
+            if(lastQuestion.new){
+                var answer = await getAnswer(lastQuestion)
+                if(answer){
+                    lastQuestion.answer = answer
+                    lastQuestion.new=false
+                    setMessages(questions)
+                    console.log('after',questions)
+                }
             }
-        </ul>
+            
+        }
+        getSolution()
+        
+    },[messages])
+
+    return (
+        <div className="messages-adapter">
+            {
+                messages.map((message,index)=>{
+                return (
+                    <div className="message" key={index}>
+                        <div className="question">{message.text}</div>
+                        <div className="answer">{message.answer}</div>
+                    </div>
+                
+                )
+            })
+            }
+        </div>
     )
 }
-const MessagesHolder = ({messages}) => {
+
+
+const MessagesHolder = ({messages,setMessages}) => {
     
     return (
         <div className="messages-container">
             {
-                messages.length===0?<EmptyMessages/>:<MessagesAdapter messages={messages}/>
+                messages.length===0?<EmptyMessages/>:<MessagesAdapter messages={messages} setMessages={setMessages}/>
             }
         </div>
     )

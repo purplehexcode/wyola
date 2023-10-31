@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 const Title = ({navOpen,setNavOpen}) => {
     const handleNavOpen = () =>{
         if(navOpen){
@@ -7,6 +9,11 @@ const Title = ({navOpen,setNavOpen}) => {
             setNavOpen(true)
         }
     }
+    useEffect(()=>{
+        if(window.innerWidth>700){
+            setNavOpen(true)
+        }
+    },[])
     return (
         <div className="title-area">
             <div className="title-container">

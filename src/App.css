@@ -58,8 +58,28 @@
   display: flex;
   flex-direction: column;
 }
+.messages-adapter{
+  overflow-y: scroll;
+  width: 75%;
+}
 .messages-container{
   flex-grow: 1;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.question{
+  padding: 0.4rem;
+}
+.answer{
+  
+  background: white;
+  padding: 1rem;
+  border-radius: 0.7rem;
+
+
 }
 .hello-message{
   margin: 0.2rem;
@@ -192,6 +212,9 @@ input[type='file']:focus{
     
   }
   .query-container{
+    width: 90%;
+  }
+  .messages-adapter{
     width: 90%;
   }
 }

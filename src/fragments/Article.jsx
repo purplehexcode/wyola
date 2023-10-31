@@ -11,7 +11,7 @@ const Article = ()=>{
 
     return (
         <div className="article-area">
-            <MessagesHolder messages={messages}/>
+            <MessagesHolder messages={messages} setMessages={setMessages}/>
             <Input query={query} setQuery={setQuery} setMessages={setMessages} messages={messages}/>
         </div>
         
